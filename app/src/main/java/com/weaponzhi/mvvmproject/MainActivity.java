@@ -1,22 +1,18 @@
 package com.weaponzhi.mvvmproject;
 
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-import com.weaponzhi.mvvmproject.Entity.UserEntity;
 import com.weaponzhi.mvvmproject.databinding.ActivityMainBinding;
+import com.weaponzhi.mvvmproject.viewmodel.UserViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this,R.layout.activity_main);
-        UserEntity user = new UserEntity();
-        user.setAge(34);
-        user.setNickname("小之");
-        user.setUsername("WeaponZhi");
-        activityMainBinding.setUser(user);
+        final ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this,R.layout.activity_main);
+        UserViewModel userViewModel = new UserViewModel(this,activityMainBinding);
     }
 }

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.weaponzhi.mvvmproject.Entity.UserEntity"/>
+        <import type="com.weaponzhi.mvvmproject.viewmodel.UserViewModel"/>
         <variable
-            name="user"
-            type="UserEntity"/>
+            name="model"
+            type="UserViewModel"/>
 
     </data>
 
@@ -18,18 +19,24 @@
         tools:context=".MainActivity">
 
         <TextView
+            android:onClick="@{model.onItemClick}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{user.username}"/>
+            android:text="@{model.user.username}"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{user.nickname}"/>
+            android:text="@{model.user.nickname}"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{String.valueOf(user.age)}"/>
+            android:text="@{String.valueOf(model.user.age)}"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:imageUrl="@{model.user.imageUrl}"
+            />
     </LinearLayout>
 </layout>
