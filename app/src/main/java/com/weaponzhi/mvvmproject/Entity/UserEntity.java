@@ -5,6 +5,7 @@ import android.databinding.Bindable;
 import android.databinding.ObservableField;
 
 import com.weaponzhi.mvvmproject.BR;
+import com.weaponzhi.mvvmproject.MainContact;
 
 /**
  * UserEntity 能实现双向绑定的实体 Model
@@ -13,7 +14,7 @@ import com.weaponzhi.mvvmproject.BR;
  * e-mail: guanzhi.zhang@sojex.cn
  */
 
-public class UserEntity extends BaseObservable {
+public class UserEntity extends BaseObservable implements MainContact.MainModel{
 
     ObservableField<String> username = new ObservableField<>();
     ObservableField<String> nickname = new ObservableField<>();
@@ -60,4 +61,8 @@ public class UserEntity extends BaseObservable {
         notifyPropertyChanged(BR.age);
     }
 
+    @Override
+    public void getDataHttp() {
+
+    }
 }

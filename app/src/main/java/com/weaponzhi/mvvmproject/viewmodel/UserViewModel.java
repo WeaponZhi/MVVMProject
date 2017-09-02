@@ -11,13 +11,14 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.weaponzhi.mvvmproject.Entity.UserEntity;
+import com.weaponzhi.mvvmproject.MainContact;
 import com.weaponzhi.mvvmproject.databinding.ActivityMainBinding;
 
 /**
  * Created by WeaponZhi on 2017/8/29.
  */
 
-public class UserViewModel extends BaseObservable {
+public class UserViewModel extends BaseObservable implements MainContact.MainViewModel{
     public UserEntity user;
     public ActivityMainBinding mainBinding;
     public Activity activity;
@@ -44,6 +45,7 @@ public class UserViewModel extends BaseObservable {
     @Bindable
     public void setImageUrl(String imageUrl) {
         this.imageUrl.set(imageUrl);
+        user.getDataHttp();
         notifyPropertyChanged(com.weaponzhi.mvvmproject.BR.imageUrl);
     }
 
@@ -53,5 +55,11 @@ public class UserViewModel extends BaseObservable {
                 .load(img)
                 .into(iv);
     }
+
+    @Override
+    public void initVM() {
+
+    }
+
 
 }
