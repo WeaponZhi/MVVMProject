@@ -4,10 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.weaponzhi.mvvmproject.viewmodel.UserViewModel"/>
         <variable
             name="model"
-            type="UserViewModel"/>
+            type="com.weaponzhi.mvvmproject.viewmodel.MainViewModel"/>
 
     </data>
 
@@ -22,21 +21,26 @@
             android:onClick="@{model.onItemClick}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{model.user.username}"/>
+            android:text="@{model.username}"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{model.user.nickname}"/>
+            android:text="@{model.nickname}"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{String.valueOf(model.user.age)}"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:imageUrl="@{model.user.imageUrl}"
-            />
+            android:text="@{String.valueOf(model.age)}"/>
+        <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:imageUrl="@{model.imageUrl}"-->
+            <!--/>-->
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#000"
+            android:text="222"/>
     </LinearLayout>
 </layout>
