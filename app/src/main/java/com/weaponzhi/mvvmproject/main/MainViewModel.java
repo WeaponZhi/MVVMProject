@@ -1,5 +1,12 @@
 package com.weaponzhi.mvvmproject.main;
 
+import android.content.Intent;
+import android.databinding.Bindable;
+import android.view.View;
+
+import com.weaponzhi.mvvmproject.BR;
+import com.weaponzhi.mvvmproject.home.HomeActivity;
+
 /**
  * MainViewModel 首页VM
  * author:张冠之
@@ -8,13 +15,38 @@ package com.weaponzhi.mvvmproject.main;
  */
 
 public class MainViewModel extends MainContact.ViewModel {
-    public MainModel mainModel;
 
     @Override
     protected void init() {
-        mainModel = new MainModel("weaponzhi","xiaozhi",23);
+       setModel(new MainModel("weaponzhi","xiaozhi",23));
     }
 
+    public void onItemClick(View view) {
+//        Toast.makeText(view.getContext(), "通知 model层，异步请求，获取用户信息", Toast.LENGTH_SHORT).show();
+        setUsername();
+    }
+
+    public void onButtonClick(View view){
+        view.getContext().startActivity(new Intent(view.getContext(), HomeActivity.class));
+    }
+
+    @Bindable
+    public String getUsername(){
+        return getModel().username.get();
+    }
+
+    public String getNickname(){
+        return getModel().nickname.get();
+    }
+
+    public int getAge(){
+        return getModel().age.get();
+    }
+
+    public void setUsername(){
+        getModel().username.set("111");
+        notifyPropertyChanged(BR.username);
+    }
 
     @Override
     void getInitData() {
@@ -26,11 +58,13 @@ public class MainViewModel extends MainContact.ViewModel {
 
     @Override
     void onSuccess() {
-        mainModel.dataManager();
+        getModel().dataManager();
     }
 
     @Override
     void onError() {
 
     }
+
+
 }

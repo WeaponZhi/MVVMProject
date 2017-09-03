@@ -1,11 +1,6 @@
 package com.weaponzhi.mvvmproject.main;
 
-import android.content.Intent;
 import android.databinding.ObservableField;
-import android.view.View;
-import android.widget.Toast;
-
-import com.weaponzhi.mvvmproject.home.HomeActivity;
 
 /**
  * Model 首页 model
@@ -24,15 +19,6 @@ public class MainModel extends MainContact.Model {
         this.username.set(username);
         this.nickname.set(nickname);
         this.age.set(age);
-    }
-
-    public void onItemClick(View view) {
-        Toast.makeText(view.getContext(), "通知 model层，异步请求，获取用户信息", Toast.LENGTH_SHORT).show();
-        username.set("111");
-    }
-
-    public void onButtonClick(View view){
-        view.getContext().startActivity(new Intent(view.getContext(), HomeActivity.class));
     }
 
     @Override

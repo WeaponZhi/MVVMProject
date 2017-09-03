@@ -7,7 +7,7 @@ import com.weaponzhi.mvvmproject.common.BaseActivity;
  * Created by WeaponZhi on 2017/9/3.
  */
 
-public class HomeActivity extends BaseActivity<HomeViewModel> implements HomeContact.View{
+public class HomeActivity extends BaseActivity<HomeViewModel,HomeModel> implements HomeContact.View{
 
     @Override
     public int getLayoutId() {

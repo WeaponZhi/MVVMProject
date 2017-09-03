@@ -1,6 +1,7 @@
 package com.weaponzhi.mvvmproject.main;
 
 import android.databinding.Observable;
+import android.widget.Toast;
 
 import com.weaponzhi.mvvmproject.R;
 import com.weaponzhi.mvvmproject.common.BaseActivity;
@@ -12,7 +13,7 @@ import com.weaponzhi.mvvmproject.common.BaseActivity;
  * e-mail: guanzhi.zhang@sojex.cn
  */
 
-public class MainActivity extends BaseActivity<MainViewModel> implements MainContact.View{
+public class MainActivity extends BaseActivity<MainViewModel,MainModel> implements MainContact.View{
 
     @Override
     public int getLayoutId() {
@@ -23,10 +24,10 @@ public class MainActivity extends BaseActivity<MainViewModel> implements MainCon
     public void initView() {
         getViewModel().getInitData();//调用 VM 接口
         //双向绑定，在 VIEW 层不用接口处理方法
-        getViewModel().mainModel.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+        getViewModel().getModel().username.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
             @Override
             public void onPropertyChanged(Observable sender, int propertyId) {
-
+                Toast.makeText(MainActivity.this,getViewModel().getUsername(),Toast.LENGTH_SHORT).show();
             }
         });
     }

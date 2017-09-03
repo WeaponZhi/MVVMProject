@@ -19,7 +19,7 @@ interface HomeContact {
 
     }
 
-    abstract class ViewModel extends BaseViewModel<View> {
+    abstract class ViewModel extends BaseViewModel<View,HomeModel> {
 
     }
 }

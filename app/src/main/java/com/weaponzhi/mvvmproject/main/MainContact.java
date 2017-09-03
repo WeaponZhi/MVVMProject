@@ -22,7 +22,7 @@ interface MainContact {
         void onResponse();
     }
 
-    abstract class ViewModel extends BaseViewModel<View> {
+    abstract class ViewModel extends BaseViewModel<View,MainModel> {
         abstract void getInitData();
         abstract void onSuccess();
         abstract void onError();

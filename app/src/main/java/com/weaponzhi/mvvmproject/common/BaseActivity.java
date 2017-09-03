@@ -19,7 +19,7 @@ import butterknife.ButterKnife;
  * e-mail: guanzhi.zhang@sojex.cn
  */
 
-public abstract class BaseActivity<VM extends BaseViewModel> extends AppCompatActivity implements BaseView{
+public abstract class BaseActivity<VM extends BaseViewModel,M extends BaseModel> extends AppCompatActivity implements BaseView{
     public VM mViewModel;
     public ViewDataBinding viewDataBinding;
     public Context mContext;
@@ -49,10 +49,11 @@ public abstract class BaseActivity<VM extends BaseViewModel> extends AppCompatAc
 
         //反射生成泛型类对象
         mViewModel = TUtil.getT(this, 0);
-
+        BaseModel model = TUtil.getT(this,1);
         //VM 和 View 绑定
         if (mViewModel != null) {
             mViewModel.setView(this);
+            mViewModel.setModel(model);
         }
 
         //DataBinding 绑定
