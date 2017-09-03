@@ -18,6 +18,7 @@
         tools:context=".main.MainActivity">
 
         <TextView
+            android:onClick="@{model.homeModel.onItemClick}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{model.homeModel.username}"/>

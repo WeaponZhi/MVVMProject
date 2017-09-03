@@ -9,6 +9,8 @@ import com.weaponzhi.mvvmproject.home.HomeActivity;
 
 /**
  * MainViewModel 首页VM
+ * 提供两种和 model 的绑定方式，MainViewModel 可以隐藏 model
+ * HomeViewModel 会简单点，但暴露出 model 了
  * author:张冠之
  * time: 2017/9/2 下午11:05
  * e-mail: guanzhi.zhang@sojex.cn
