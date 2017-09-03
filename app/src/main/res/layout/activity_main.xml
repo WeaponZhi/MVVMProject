@@ -6,7 +6,7 @@
     <data>
         <variable
             name="model"
-            type="com.weaponzhi.mvvmproject.viewmodel.MainViewModel"/>
+            type="com.weaponzhi.mvvmproject.main.MainViewModel"/>
 
     </data>
 
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".MainActivity">
+        tools:context=".main.MainActivity">
 
         <TextView
             android:onClick="@{model.onItemClick}"
@@ -37,10 +37,5 @@
             <!--android:layout_height="wrap_content"-->
             <!--app:imageUrl="@{model.imageUrl}"-->
             <!--/>-->
-        <TextView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="#000"
-            android:text="222"/>
     </LinearLayout>
 </layout>

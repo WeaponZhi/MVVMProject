@@ -8,16 +8,18 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.weaponzhi.mvvmproject.BR;
-import com.weaponzhi.mvvmproject.R;
 import com.weaponzhi.mvvmproject.utils.TUtil;
 
 import butterknife.ButterKnife;
 
 /**
- * Created by pc on 2017/9/2.
+ * BaseActivity MVVM 基类 Activity
+ * author:张冠之
+ * time: 2017/9/2 下午11:05
+ * e-mail: guanzhi.zhang@sojex.cn
  */
 
-public abstract class BaseActivity<VM extends BaseViewModel> extends AppCompatActivity{
+public abstract class BaseActivity<VM extends BaseViewModel> extends AppCompatActivity implements BaseView{
     public VM mViewModel;
     public ViewDataBinding viewDataBinding;
     public Context mContext;
@@ -26,33 +28,34 @@ public abstract class BaseActivity<VM extends BaseViewModel> extends AppCompatAc
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         doBeforeSetcontentView();
-        setContentView(R.layout.activity_main);
-        viewDataBinding = DataBindingUtil.setContentView(this, getLayoutId());
         initActivity();
         initView();
     }
 
-    protected abstract void initView();
-
-    protected abstract int getLayoutId();
 
     /*********************基类实现***********************/
     //设置 layout 之前的配置
-    private void doBeforeSetcontentView() {
+    private void doBeforeSetcontentView() {}
 
-    }
-
-    //做绑定的初始化
+    //MVVM 绑定的初始化
     private void initActivity() {
+
+        viewDataBinding = DataBindingUtil.setContentView(this, getLayoutId());
+
         ButterKnife.bind(this);
+
+        //在某些特殊情况需要用到 Context 对象
         mContext = this;
 
+        //反射生成泛型类对象
         mViewModel = TUtil.getT(this, 0);
 
+        //VM 和 View 绑定
         if (mViewModel != null) {
             mViewModel.setView(this);
         }
 
+        //DataBinding 绑定
         viewDataBinding.setVariable(BR.model, mViewModel);
     }
 

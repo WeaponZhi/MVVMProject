@@ -7,9 +7,5 @@ import android.databinding.BaseObservable;
  */
 
 public abstract class BaseModel extends BaseObservable{
-    public BaseModel(){
-        init();
-    }
 
-    public abstract void init();
 }

@@ -9,7 +9,7 @@ import com.weaponzhi.mvvmproject.utils.TUtil;
  * Created by pc on 2017/9/2.
  */
 
-public abstract class BaseViewModel<V extends BaseActivity, M extends BaseModel> extends BaseObservable {
+public abstract class BaseViewModel<V extends BaseView, M extends BaseModel> extends BaseObservable {
     private V mView;
     private M mModel;
 
