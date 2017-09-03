@@ -1,8 +1,5 @@
 package com.weaponzhi.mvvmproject.main;
 
-import android.view.View;
-import android.widget.Toast;
-
 /**
  * MainViewModel 首页VM
  * author:张冠之
@@ -11,24 +8,29 @@ import android.widget.Toast;
  */
 
 public class MainViewModel extends MainContact.ViewModel {
+    public MainModel mainModel;
 
     @Override
     protected void init() {
-        setModel(new MainModel("weaponzhi","xiaozhi",23));
+        mainModel = new MainModel("weaponzhi","xiaozhi",23);
     }
 
-    public void onItemClick(View view) {
-        Toast.makeText(view.getContext(), "通知 model层，异步请求，获取用户信息", Toast.LENGTH_SHORT).show();
-    }
-    public String getUsername(){
-        return getModel().username;
-    }
-    public String getNickname(){
-        return getModel().nickname;
+
+    @Override
+    void getInitData() {
+        //调用 view 接口
+        //注意，在 VM 中调用 view 接口会导致该方法不可测
+        //仅特殊情况使用，尽量通过 addOnPropertyChangedCallback 进行监听
+        getView().onResponse();
     }
 
-    public int getAge(){
-        return getModel().age;
+    @Override
+    void onSuccess() {
+        mainModel.dataManager();
     }
 
+    @Override
+    void onError() {
+
+    }
 }

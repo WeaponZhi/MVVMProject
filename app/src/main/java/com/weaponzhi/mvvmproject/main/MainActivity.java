@@ -1,5 +1,7 @@
 package com.weaponzhi.mvvmproject.main;
 
+import android.databinding.Observable;
+
 import com.weaponzhi.mvvmproject.R;
 import com.weaponzhi.mvvmproject.common.BaseActivity;
 
@@ -19,6 +21,18 @@ public class MainActivity extends BaseActivity<MainViewModel> implements MainCon
 
     @Override
     public void initView() {
+        getViewModel().getInitData();//调用 VM 接口
+        //双向绑定，在 VIEW 层不用接口处理方法
+        getViewModel().mainModel.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+            @Override
+            public void onPropertyChanged(Observable sender, int propertyId) {
+
+            }
+        });
+    }
+    //view 接口
+    @Override
+    public void onResponse() {
 
     }
 }

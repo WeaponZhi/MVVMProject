@@ -6,7 +6,7 @@
     <data>
         <variable
             name="model"
-            type="com.weaponzhi.mvvmproject.main.MainViewModel"/>
+            type="com.weaponzhi.mvvmproject.home.HomeViewModel"/>
 
     </data>
 
@@ -18,24 +18,23 @@
         tools:context=".main.MainActivity">
 
         <TextView
-            android:onClick="@{model.mainModel.onItemClick}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{model.mainModel.username}"/>
+            android:text="@{model.homeModel.username}"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{model.mainModel.nickname}"/>
+            android:text="@{model.homeModel.nickname}"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{String.valueOf(model.mainModel.age)}"/>
-      <Button
-          android:text="跳转"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:onClick="@{model.mainModel.onButtonClick}"/>
+            android:text="@{String.valueOf(model.homeModel.age)}"/>
+        <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:imageUrl="@{model.imageUrl}"-->
+            <!--/>-->
     </LinearLayout>
 </layout>

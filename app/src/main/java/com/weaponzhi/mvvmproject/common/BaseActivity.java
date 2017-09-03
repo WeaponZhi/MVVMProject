@@ -57,11 +57,17 @@ public abstract class BaseActivity<VM extends BaseViewModel> extends AppCompatAc
 
         //DataBinding 绑定
         viewDataBinding.setVariable(BR.model, mViewModel);
+
+        mViewModel.init();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         ButterKnife.unbind(this);
+    }
+
+    public VM getViewModel(){
+        return mViewModel;
     }
 }
