@@ -1,7 +1,5 @@
 package com.weaponzhi.mvvmproject.main;
 
-import android.databinding.ObservableField;
-
 /**
  * Model 首页 model
  * author:张冠之
@@ -11,18 +9,13 @@ import android.databinding.ObservableField;
 
 public class MainModel extends MainContact.Model {
 
-    public ObservableField<String> username = new ObservableField<>();
-    public ObservableField<String> nickname = new ObservableField<>();
-    public ObservableField<Integer> age = new ObservableField<>();
-
-    public MainModel(String username,String nickname,int age){
-        this.username.set(username);
-        this.nickname.set(nickname);
-        this.age.set(age);
-    }
-
+    //发送 http 请求
     @Override
-    void dataManager() {
-
+    void onHttpRequest() {
+        //http 请求成功
+        getViewModel().onSuccess();
+        //http 请求失败
+        getViewModel().onError();
     }
+
 }

@@ -21,17 +21,17 @@
             android:onClick="@{model.onItemClick}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{model.username}"/>
+            android:text="@{model.mainEntry.username}"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{model.nickname}"/>
+            android:text="@{model.mainEntry.nickname}"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{String.valueOf(model.age)}"/>
+            android:text="@{String.valueOf(model.mainEntry.age)}"/>
       <Button
           android:text="跳转"
           android:layout_width="wrap_content"

@@ -49,11 +49,15 @@ public abstract class BaseActivity<VM extends BaseViewModel,M extends BaseModel>
 
         //反射生成泛型类对象
         mViewModel = TUtil.getT(this, 0);
-        BaseModel model = TUtil.getT(this,1);
+        M model = TUtil.getT(this,1);
         //VM 和 View 绑定
         if (mViewModel != null) {
             mViewModel.setView(this);
             mViewModel.setModel(model);
+            mViewModel.setContext(this.getApplicationContext());
+        }
+        if (model != null){
+            model.setViewModel(mViewModel);
         }
 
         //DataBinding 绑定

@@ -22,16 +22,16 @@ public class MainActivity extends BaseActivity<MainViewModel,MainModel> implemen
 
     @Override
     public void initView() {
-        getViewModel().getInitData();//调用 VM 接口
+        getViewModel().getData();//调用 VM 接口
         //双向绑定，在 VIEW 层不用接口处理方法
-        getViewModel().getModel().username.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+        getViewModel().mainEntry.username.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
             @Override
             public void onPropertyChanged(Observable sender, int propertyId) {
-                Toast.makeText(MainActivity.this,getViewModel().getUsername(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,MainActivity.this.getViewModel().mainEntry.username.get(),Toast.LENGTH_SHORT).show();
             }
         });
     }
-    //view 接口
+    //view 接口，放UI操作
     @Override
     public void onResponse() {
 

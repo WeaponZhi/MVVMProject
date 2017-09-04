@@ -1,10 +1,10 @@
 package com.weaponzhi.mvvmproject.main;
 
 import android.content.Intent;
-import android.databinding.Bindable;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
-import com.weaponzhi.mvvmproject.BR;
 import com.weaponzhi.mvvmproject.home.HomeActivity;
 
 /**
@@ -17,41 +17,25 @@ import com.weaponzhi.mvvmproject.home.HomeActivity;
  */
 
 public class MainViewModel extends MainContact.ViewModel {
+    public MainEntry mainEntry;
+
+    public void onItemClick(View view) {
+        Toast.makeText(getContext(), "通知 model层，异步请求，获取用户信息", Toast.LENGTH_SHORT).show();
+        mainEntry.username.set("xiaweizi");
+    }
+
+    public void onButtonClick(View view) {
+        getContext().startActivity(new Intent(getContext(), HomeActivity.class));
+    }
 
     @Override
     protected void init() {
-       setModel(new MainModel("weaponzhi","xiaozhi",23));
-    }
-
-    public void onItemClick(View view) {
-//        Toast.makeText(view.getContext(), "通知 model层，异步请求，获取用户信息", Toast.LENGTH_SHORT).show();
-        setUsername();
-    }
-
-    public void onButtonClick(View view){
-        view.getContext().startActivity(new Intent(view.getContext(), HomeActivity.class));
-    }
-
-    @Bindable
-    public String getUsername(){
-        return getModel().username.get();
-    }
-
-    public String getNickname(){
-        return getModel().nickname.get();
-    }
-
-    public int getAge(){
-        return getModel().age.get();
-    }
-
-    public void setUsername(){
-        getModel().username.set("111");
-        notifyPropertyChanged(BR.username);
+        mainEntry = new MainEntry("weaponzhi","xiaozhi",23);
+        getModel().onHttpRequest();
     }
 
     @Override
-    void getInitData() {
+    void getData() {
         //调用 view 接口
         //注意，在 VM 中调用 view 接口会导致该方法不可测
         //仅特殊情况使用，尽量通过 addOnPropertyChangedCallback 进行监听
@@ -60,12 +44,13 @@ public class MainViewModel extends MainContact.ViewModel {
 
     @Override
     void onSuccess() {
-        getModel().dataManager();
+        Log.i("response", "Http success");
+        getView().onResponse();
     }
 
     @Override
     void onError() {
-
+        Log.i("response", "Http error");
     }
 
 
