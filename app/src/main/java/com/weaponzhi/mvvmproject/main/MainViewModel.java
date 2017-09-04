@@ -25,6 +25,7 @@ public class MainViewModel extends MainContact.ViewModel {
     }
 
     public void onButtonClick(View view) {
+        //可以拿到 context 对象
         getContext().startActivity(new Intent(getContext(), HomeActivity.class));
     }
 

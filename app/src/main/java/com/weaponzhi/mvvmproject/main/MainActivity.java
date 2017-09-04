@@ -27,7 +27,7 @@ public class MainActivity extends BaseActivity<MainViewModel,MainModel> implemen
         getViewModel().mainEntry.username.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
             @Override
             public void onPropertyChanged(Observable sender, int propertyId) {
-                Toast.makeText(MainActivity.this,MainActivity.this.getViewModel().mainEntry.username.get(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext,getViewModel().mainEntry.username.get(),Toast.LENGTH_SHORT).show();
             }
         });
     }
