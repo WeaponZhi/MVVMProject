@@ -40,7 +40,6 @@ public class MainViewModel extends MainContact.ViewModel {
         //调用 view 接口
         //注意，在 VM 中调用 view 接口会导致该方法不可测
         //仅特殊情况使用，尽量通过 addOnPropertyChangedCallback 进行监听
-        getView().onResponse();
     }
 
     @Override

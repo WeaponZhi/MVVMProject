@@ -34,6 +34,6 @@ public class MainActivity extends BaseActivity<MainViewModel,MainModel> implemen
     //view 接口，放UI操作
     @Override
     public void onResponse() {
-
+        getViewModel().getData();
     }
 }
