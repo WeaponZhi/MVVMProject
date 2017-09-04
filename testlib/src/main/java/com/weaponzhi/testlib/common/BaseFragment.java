@@ -1,4 +1,4 @@
-package com.weaponzhi.mvvmproject.common;
+package com.weaponzhi.testlib.common;
 
 /**
  * Created by pc on 2017/9/2.

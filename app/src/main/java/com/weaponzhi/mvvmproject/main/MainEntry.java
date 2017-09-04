@@ -2,7 +2,8 @@ package com.weaponzhi.mvvmproject.main;
 
 import android.databinding.ObservableField;
 
-import com.weaponzhi.mvvmproject.common.BaseEntry;
+import com.weaponzhi.testlib.common.BaseEntry;
+
 
 /**
  * MainEntry Main 实体类
@@ -11,7 +12,7 @@ import com.weaponzhi.mvvmproject.common.BaseEntry;
  * e-mail: guanzhi.zhang@sojex.cn
  */
 
-public class MainEntry extends BaseEntry{
+public class MainEntry extends BaseEntry {
     public ObservableField<String> username = new ObservableField<>();
     public ObservableField<String> nickname = new ObservableField<>();
     public ObservableField<Integer> age = new ObservableField<>();

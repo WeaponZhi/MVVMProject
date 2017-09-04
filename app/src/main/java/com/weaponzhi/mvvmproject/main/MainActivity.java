@@ -3,8 +3,9 @@ package com.weaponzhi.mvvmproject.main;
 import android.databinding.Observable;
 import android.widget.Toast;
 
+import com.weaponzhi.mvvmproject.BR;
 import com.weaponzhi.mvvmproject.R;
-import com.weaponzhi.mvvmproject.common.BaseActivity;
+import com.weaponzhi.testlib.common.BaseActivity;
 
 /**
  * MainActivity 首页
@@ -35,5 +36,10 @@ public class MainActivity extends BaseActivity<MainViewModel,MainModel> implemen
     @Override
     public void onResponse() {
         getViewModel().getData();
+    }
+
+    @Override
+    public int getBR() {
+        return BR.model;
     }
 }

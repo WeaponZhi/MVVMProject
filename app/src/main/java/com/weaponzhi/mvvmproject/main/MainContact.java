@@ -1,8 +1,8 @@
 package com.weaponzhi.mvvmproject.main;
 
-import com.weaponzhi.mvvmproject.common.BaseModel;
-import com.weaponzhi.mvvmproject.common.BaseView;
-import com.weaponzhi.mvvmproject.common.BaseViewModel;
+import com.weaponzhi.testlib.common.BaseModel;
+import com.weaponzhi.testlib.common.BaseView;
+import com.weaponzhi.testlib.common.BaseViewModel;
 
 /**
  * MainContact 首页接口管理，方便单元测试
@@ -18,7 +18,7 @@ interface MainContact {
     }
 
 
-    interface View extends BaseView{
+    interface View extends BaseView {
         void onResponse();
     }
 

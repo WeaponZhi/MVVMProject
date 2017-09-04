@@ -1,7 +1,9 @@
 package com.weaponzhi.mvvmproject.home;
 
+
+import com.weaponzhi.mvvmproject.BR;
 import com.weaponzhi.mvvmproject.R;
-import com.weaponzhi.mvvmproject.common.BaseActivity;
+import com.weaponzhi.testlib.common.BaseActivity;
 
 /**
  * Created by WeaponZhi on 2017/9/3.
@@ -17,5 +19,10 @@ public class HomeActivity extends BaseActivity<HomeViewModel,HomeModel> implemen
     @Override
     public void initView() {
 
+    }
+
+    @Override
+    public int getBR() {
+        return BR.model;
     }
 }

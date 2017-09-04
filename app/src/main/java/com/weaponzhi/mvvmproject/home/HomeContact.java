@@ -1,8 +1,9 @@
 package com.weaponzhi.mvvmproject.home;
 
-import com.weaponzhi.mvvmproject.common.BaseModel;
-import com.weaponzhi.mvvmproject.common.BaseView;
-import com.weaponzhi.mvvmproject.common.BaseViewModel;
+
+import com.weaponzhi.testlib.common.BaseModel;
+import com.weaponzhi.testlib.common.BaseView;
+import com.weaponzhi.testlib.common.BaseViewModel;
 
 /**
  * Created by WeaponZhi on 2017/9/2.

@@ -1,4 +1,4 @@
-package com.weaponzhi.mvvmproject.common;
+package com.weaponzhi.testlib.common;
 
 import android.databinding.BaseObservable;
 

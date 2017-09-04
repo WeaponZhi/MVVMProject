@@ -1,4 +1,4 @@
-package com.weaponzhi.mvvmproject.utils;
+package com.weaponzhi.testlib.utils;
 
 import java.lang.reflect.ParameterizedType;
 
