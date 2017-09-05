@@ -12,7 +12,7 @@ import com.weaponzhi.testlib.common.BaseViewModel;
  */
 
 
-interface MainContact {
+public interface MainContact {
     abstract class Model extends BaseModel<ViewModel> {
         abstract void onHttpRequest();
     }

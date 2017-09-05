@@ -1,10 +1,10 @@
 package com.weaponzhi.mvvmproject.main;
 
-import android.databinding.Observable;
-import android.widget.Toast;
+import android.view.View;
 
 import com.weaponzhi.mvvmproject.BR;
 import com.weaponzhi.mvvmproject.R;
+import com.weaponzhi.mvvmproject.databinding.ActivityMainBinding;
 import com.weaponzhi.testlib.common.BaseActivity;
 
 /**
@@ -15,7 +15,8 @@ import com.weaponzhi.testlib.common.BaseActivity;
  */
 
 public class MainActivity extends BaseActivity<MainViewModel,MainModel> implements MainContact.View{
-
+    private MainAdapter adapter;
+    private String[] a = new String[]{"1","2","3","4"};
     @Override
     public int getLayoutId() {
         return R.layout.activity_main;
@@ -23,12 +24,16 @@ public class MainActivity extends BaseActivity<MainViewModel,MainModel> implemen
 
     @Override
     public void initView() {
+        adapter = new MainAdapter(this,android.R.layout.simple_list_item_1,a);
+        viewDataBinding.setVariable(BR.adapter,adapter);
+
         getViewModel().getData();//调用 VM 接口
         //双向绑定，在 VIEW 层不用接口处理方法
-        getViewModel().mainEntry.username.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+        ((ActivityMainBinding)viewDataBinding).btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onPropertyChanged(Observable sender, int propertyId) {
-                Toast.makeText(mContext,getViewModel().mainEntry.username.get(),Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                a = new String[]{"1","2","3","4","5"};
+                adapter = new MainAdapter(mContext,android.R.layout.simple_list_item_1,a);
             }
         });
     }

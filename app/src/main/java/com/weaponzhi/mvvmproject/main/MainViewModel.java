@@ -1,11 +1,8 @@
 package com.weaponzhi.mvvmproject.main;
 
-import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
-import com.weaponzhi.mvvmproject.home.HomeActivity;
 
 /**
  * MainViewModel 首页VM
@@ -24,15 +21,11 @@ public class MainViewModel extends MainContact.ViewModel {
         mainEntry.username.set("xiaweizi");
     }
 
-    public void onButtonClick(View view) {
-        //可以拿到 context 对象
-        getContext().startActivity(new Intent(getContext(), HomeActivity.class));
-    }
+
 
     @Override
     protected void init() {
         mainEntry = new MainEntry("weaponzhi","xiaozhi",23);
-        getModel().onHttpRequest();
     }
 
     @Override
@@ -46,6 +39,7 @@ public class MainViewModel extends MainContact.ViewModel {
     void onSuccess() {
         Log.i("response", "Http success");
         getView().onResponse();
+
     }
 
     @Override
