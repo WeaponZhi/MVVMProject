@@ -1,7 +1,7 @@
 package com.weaponzhi.mvvmproject.databinding_adapter.itembindings;
 
 
-import org.sojex.finance.bindingcollectionadapter.ItemBinding;
+import com.weaponzhi.mvvmproject.databinding_adapter.ItemBinding;
 
 /**
  * Implement this interface on yor items to use with {@link OnItemBindModel}.

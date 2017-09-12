@@ -18,14 +18,14 @@ public class MainViewModel extends MainContact.ViewModel {
 
     public void onItemClick(View view) {
         Toast.makeText(getContext(), "通知 model层，异步请求，获取用户信息", Toast.LENGTH_SHORT).show();
-        mainEntry.username.set("xiaweizi");
+        mainEntry.username.set("xiaweizi！！");
     }
 
 
 
     @Override
     protected void init() {
-        mainEntry = new MainEntry("weaponzhi","xiaozhi",23);
+        mainEntry = new MainEntry("weaponzhi","xiaozhi",23,10,20,26);
     }
 
     @Override

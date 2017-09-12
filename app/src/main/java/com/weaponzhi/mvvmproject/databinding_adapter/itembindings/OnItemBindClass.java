@@ -3,8 +3,8 @@ package com.weaponzhi.mvvmproject.databinding_adapter.itembindings;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 
-import org.sojex.finance.bindingcollectionadapter.ItemBinding;
-import org.sojex.finance.bindingcollectionadapter.OnItemBind;
+import com.weaponzhi.mvvmproject.databinding_adapter.ItemBinding;
+import com.weaponzhi.mvvmproject.databinding_adapter.OnItemBind;
 
 import java.util.ArrayList;
 import java.util.List;

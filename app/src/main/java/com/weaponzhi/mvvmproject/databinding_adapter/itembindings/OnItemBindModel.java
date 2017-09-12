@@ -1,8 +1,8 @@
 package com.weaponzhi.mvvmproject.databinding_adapter.itembindings;
 
 
-import org.sojex.finance.bindingcollectionadapter.ItemBinding;
-import org.sojex.finance.bindingcollectionadapter.OnItemBind;
+import com.weaponzhi.mvvmproject.databinding_adapter.ItemBinding;
+import com.weaponzhi.mvvmproject.databinding_adapter.OnItemBind;
 
 /**
  * An {@link OnItemBind} that selects item views by delegating to each item. Items must implement
